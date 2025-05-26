@@ -15,8 +15,27 @@
             <option value="$PROJECT_DIR$/core/designSystem" />
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/businessAuth" />
+            <option value="$PROJECT_DIR$/features/businessHome" />
+            <option value="$PROJECT_DIR$/features/businessMedicalForm" />
+            <option value="$PROJECT_DIR$/features/businessProfile" />
+            <option value="$PROJECT_DIR$/features/businesssMedicalRecords" />
+            <option value="$PROJECT_DIR$/features/chat" />
             <option value="$PROJECT_DIR$/features/ear" />
+            <option value="$PROJECT_DIR$/features/eyes" />
             <option value="$PROJECT_DIR$/features/face" />
+            <option value="$PROJECT_DIR$/features/forgotPassword" />
+            <option value="$PROJECT_DIR$/features/medicalForm" />
+            <option value="$PROJECT_DIR$/features/notification" />
+            <option value="$PROJECT_DIR$/features/oral" />
+            <option value="$PROJECT_DIR$/features/qiAssist" />
+            <option value="$PROJECT_DIR$/features/userAuth" />
+            <option value="$PROJECT_DIR$/features/userHealthRecords" />
+            <option value="$PROJECT_DIR$/features/userHome" />
+            <option value="$PROJECT_DIR$/features/userMedicalRecords" />
+            <option value="$PROJECT_DIR$/features/userMedicationReminder" />
+            <option value="$PROJECT_DIR$/features/userNotes" />
+            <option value="$PROJECT_DIR$/features/userProfile" />
           </set>
         </option>
       </GradleProjectSettings>
