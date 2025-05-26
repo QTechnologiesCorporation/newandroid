@@ -10,10 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AttachFile
-import androidx.compose.material.icons.filled.Attachment
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.outlined.AttachFile
-import androidx.compose.material.icons.outlined.Attachment
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -24,12 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-
 
 
 @Composable
@@ -40,7 +34,7 @@ fun MedicalRecordCard(
     lastCollectedTime: String,
     reportSummary: String,
     fileName: String,
-    verified:Boolean,
+    verified: Boolean,
     onViewClick: () -> Unit
 ) {
     Card(
@@ -51,27 +45,27 @@ fun MedicalRecordCard(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
 
-          if(verified) {
-              Box(
-                  modifier = Modifier
-                      .clip(RoundedCornerShape(30.dp)) // ✅ This applies the rounded corners visually
-                      .border(
-                          width = 1.dp,
-                          color = Color(0xFF00D998),
-                          shape = RoundedCornerShape(30.dp)
-                      )
-                      .background(Color(0xFF00D998))
-                      .padding(horizontal = 7.dp, vertical = 0.dp)
-              ) {
-                  Text(
-                      text = "verified",
-                      fontSize = 10.sp,
-                      color = Color.White,
-                      fontWeight = FontWeight.SemiBold
-                  )
-              }
-          }
-    Spacer(Modifier.height(10.dp))
+            if (verified) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(30.dp)) // ✅ This applies the rounded corners visually
+                        .border(
+                            width = 1.dp,
+                            color = Color(0xFF00D998),
+                            shape = RoundedCornerShape(30.dp)
+                        )
+                        .background(Color(0xFF00D998))
+                        .padding(horizontal = 7.dp, vertical = 0.dp)
+                ) {
+                    Text(
+                        text = "verified",
+                        fontSize = 10.sp,
+                        color = Color.White,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+            }
+            Spacer(Modifier.height(10.dp))
 
             // Header Row
             Row(
@@ -80,10 +74,10 @@ fun MedicalRecordCard(
             ) {
                 Column {
                     Text(
-                            text = doctorName,
-                            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold),
-                            color = MaterialTheme.colorScheme.onBackground
-                        )
+                        text = doctorName,
+                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
 
 
 
@@ -113,7 +107,7 @@ fun MedicalRecordCard(
 //                    Spacer(modifier = Modifier.height(1.dp))
                     Text(
                         text = "Last Edited: $lastCollectedTime",
-                        fontSize =9.sp,
+                        fontSize = 9.sp,
                         color = MaterialTheme.colorScheme.onBackground
                     )
                 }

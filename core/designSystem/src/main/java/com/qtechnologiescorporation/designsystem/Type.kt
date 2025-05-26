@@ -1,34 +1,80 @@
-package com.qtechnologiescorporation.myapplication.ui.theme
+package com.qtechnologiescorporation.designsystem
 
 import androidx.compose.material3.Typography
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
+import com.qtechnologiescorporation.designsystem.R as Res
 
-// Set of Material typography styles to start with
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
-    */
+
+@Composable
+private fun soraFontFamily(): FontFamily = FontFamily(
+    Font(Res.font.sora_semibold, weight = FontWeight.SemiBold),
+    Font(Res.font.sora_thin, weight = FontWeight.Thin),
 )
+
+private val defaultTypography = Typography()
+
+@Composable
+internal fun myCustomTypography(): Typography {
+    val soraFontFamily = soraFontFamily()
+
+    return Typography(
+        displayLarge = defaultTypography.displayLarge.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        displayMedium = defaultTypography.displayMedium.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        displaySmall = defaultTypography.displaySmall.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        headlineLarge = defaultTypography.headlineLarge.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        headlineMedium = defaultTypography.headlineMedium.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        headlineSmall = defaultTypography.headlineSmall.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        titleLarge = defaultTypography.titleLarge.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        titleMedium = defaultTypography.titleMedium.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        titleSmall = defaultTypography.titleSmall.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        bodyLarge = defaultTypography.bodyLarge.copy(
+            fontFamily = soraFontFamily,
+        ),
+        bodyMedium = defaultTypography.bodyMedium.copy(
+            fontFamily = soraFontFamily,
+        ),
+        bodySmall = defaultTypography.bodySmall.copy(
+            fontFamily = soraFontFamily,
+        ),
+        labelLarge = defaultTypography.labelLarge.copy(
+            fontFamily = soraFontFamily,
+            fontWeight = FontWeight.Bold,
+        ),
+        labelMedium = defaultTypography.labelMedium.copy(
+            fontFamily = soraFontFamily,
+        ),
+        labelSmall = defaultTypography.labelSmall.copy(
+            fontFamily = soraFontFamily,
+        ),
+    )
+}

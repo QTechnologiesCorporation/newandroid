@@ -1,8 +1,6 @@
-package com.qtechnologiescorporation.myapplication.ui.theme
+package com.qtechnologiescorporation.designsystem
 
-import android.app.Activity
 import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -12,47 +10,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
-//private val DarkColorScheme = darkColorScheme(
-//    primary = Purple80,
-//    secondary = PurpleGrey80,
-//    tertiary = Pink80
-//)
-//
-//private val LightColorScheme = lightColorScheme(
-//    primary = Purple40,
-//    secondary = PurpleGrey40,
-//    tertiary = Pink40
-//
-//    /* Other default colors to override
-//    background = Color(0xFFFFFBFE),
-//    surface = Color(0xFFFFFBFE),
-//    onPrimary = Color.White,
-//    onSecondary = Color.White,
-//    onTertiary = Color.White,
-//    onBackground = Color(0xFF1C1B1F),
-//    onSurface = Color(0xFF1C1B1F),
-//    */
-//)
 private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFF00D998),
-    background = Color(0xFF1C1D21),
-    onBackground = Color.White,
-    onPrimary = Color.Black
+    primary = primaryDark,
+    onPrimary = onPrimaryDark,
+    background = backgroundDark,
+    onBackground = onBackgroundDark
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF00D998),
-    background = Color.White,
-    onBackground = Color.Black,
-    onPrimary = Color.White
+    primary = primaryLight,
+    onPrimary = onPrimaryLight,
+    background = backgroundLight,
+    onBackground = onBackgroundLight
 )
 
 @Composable
-fun MyApplicationTheme(
+fun QTechHealthTheme(
 //    darkTheme: Boolean = isSystemInDarkTheme(),
     darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -67,7 +44,7 @@ fun MyApplicationTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = myCustomTypography(),
         content = content
     )
 }
