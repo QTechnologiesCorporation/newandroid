@@ -4,7 +4,8 @@ plugins {
 }
 
 android {
-    namespace = "com.qtechnologiescorporation.userauth"
+    namespace = "com.qtechnologiescorporation.designsystem"
+
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -24,8 +25,8 @@ android {
 }
 
 dependencies {
-    //Project Modules
-    implementation(project(":libraries:designSystem"))
+    //Extended Icons
+    api(libs.androidx.material.icons.extended.android)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

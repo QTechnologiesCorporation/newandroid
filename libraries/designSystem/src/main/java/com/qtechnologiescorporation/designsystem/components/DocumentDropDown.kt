@@ -107,9 +107,9 @@ fun DocumentDropdown(
                     }
                 )
                 if (index != docOptions.lastIndex) {
-                    Divider(
-                        color = Color(0xFFE0E0E0),
-                        thickness = 1.dp
+                    HorizontalDivider(
+                        thickness = 1.dp,
+                        color = Color(0xFFE0E0E0)
                     )
                 }
             }
