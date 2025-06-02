@@ -1,5 +1,14 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":userFeatures:userAuth:presentation")
+
+
+include(":userFeatures:userAuth:navigation")
+
+
+include(":features:userAuth:navigation")
+
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -14,6 +23,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -28,28 +39,20 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "Q Tech Health"
 include(":app")
+
 include(":libraries:designSystem")
-include(":libraries:navigation")
-include(":features:ear")
-include(":features:face")
-include(":features:userAuth")
-include(":features:businessAuth")
-include(":features:oral")
-include(":features:eyes")
-include(":features:medicalForm")
-include(":features:forgotPassword")
-include(":features:userHome")
-include(":features:chat")
-include(":features:qiAssist")
-include(":features:userHealthRecords")
-include(":features:notification")
-include(":features:userProfile")
-include(":features:businessProfile")
-include(":features:userMedicalRecords")
-include(":features:userMedicationReminder")
-include(":features:userNotes")
-include(":features:businessHome")
-include(":features:businessMedicalForm")
-include(":features:businesssMedicalRecords")
+
+include(":userFeatures:userProfile:navigation")
+include(":userFeatures:userProfile:presentation")
+
+include(":userFeatures:userHome:navigation")
+include(":userFeatures:userHome:presentation")
+
+include(":libraries:common")
+include(":libraries:navigation:api-impl")
+include(":libraries:navigation:api")
+
+

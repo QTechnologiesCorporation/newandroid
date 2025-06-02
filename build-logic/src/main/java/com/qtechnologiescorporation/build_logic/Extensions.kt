@@ -35,6 +35,17 @@ fun DependencyHandler.implementation(provider: Provider<MinimalExternalModuleDep
 fun DependencyHandler.ksp(provider: Provider<MinimalExternalModuleDependency>) {
     add("ksp", provider.get().group + ":" + provider.get().name + ":" + provider.get().version)
 }
+fun DependencyHandler.testImplementation(provider: Provider<MinimalExternalModuleDependency>) {
+    add("testImplementation", provider.get().group + ":" + provider.get().name + ":" + provider.get().version)
+}
+
+fun DependencyHandler.androidTestImplementation(provider: Provider<MinimalExternalModuleDependency>) {
+    add("androidTestImplementation", provider.get().group + ":" + provider.get().name + ":" + provider.get().version)
+}
+
+//fun DependencyHandler.debugImplementation(provider: Provider<MinimalExternalModuleDependency>) {
+//    add("debugImplementation", provider.get().group + ":" + provider.get().name + ":" + provider.get().version)
+//}
 
 fun Project.setupAndroidModule(isApplication: Boolean) {
     with(pluginManager) {
@@ -45,7 +56,6 @@ fun Project.setupAndroidModule(isApplication: Boolean) {
         }
         alias(libs.plugins.kotlin.android)
         alias(libs.plugins.ksp.annotation.processor)
-        alias(libs.plugins.hilt.android)
     }
 
     extensions.configure<BaseExtension> {
@@ -84,7 +94,7 @@ fun Project.setupAndroidModule(isApplication: Boolean) {
 private fun Project.configureKotlin() {
     tasks.withType<KotlinJvmCompile>().configureEach {
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17) // ✅ Use enum, not string
+            jvmTarget.set(JvmTarget.JVM_17)
             allWarningsAsErrors.set(true)
             freeCompilerArgs.addAll(
                 "-opt-in=kotlin.RequiresOptIn",
@@ -100,13 +110,16 @@ fun Project.setupBaseDependencies() {
         implementation(libs.coroutines.asProvider())
         implementation(libs.coroutines.android)
 
-        // Hilt
-        implementation(libs.hilt.android)
-        implementation(libs.androidx.hilt.navigation.compose)
-        ksp(libs.hilt.compiler)
+        // Koin
+        implementation(libs.koin.asProvider())
+        implementation(libs.koin.annotations)
+        ksp(libs.koin.ksp.compiler)
 
         implementation(libs.androidx.core.ktx)
         implementation(libs.androidx.appcompat)
         implementation(libs.material)
+
+        testImplementation(libs.junit)
+        androidTestImplementation(libs.androidx.junit)
     }
 }

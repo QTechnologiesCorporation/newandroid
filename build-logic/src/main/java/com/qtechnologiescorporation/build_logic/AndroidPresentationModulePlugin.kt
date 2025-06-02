@@ -19,9 +19,11 @@ class AndroidPresentationModulePlugin : Plugin<Project> {
                 implementation(libs.androidx.ui.tooling.asProvider())
                 implementation(libs.androidx.material3)
                 implementation(libs.androidx.ui.tooling.preview)
+                implementation(libs.androidx.material.icons.extended.android)
 
-                implementation(libs.androidx.navigation.compose)
-                implementation(libs.androidx.lifecycle.runtime.compose)
+                implementation(libs.koin.compose.asProvider())
+                implementation(libs.koin.compose.navigation)
+
                 implementation(libs.kotlinx.collections.immutable)
             }
         }

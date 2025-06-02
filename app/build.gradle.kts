@@ -18,8 +18,21 @@ android {
 
 dependencies {
     //Project Modules
+    implementation(project(":userFeatures:userAuth:navigation"))
+    implementation(project(":userFeatures:userAuth:presentation"))
+
+    implementation(project(":userFeatures:userHome:navigation"))
+    implementation(project(":userFeatures:userHome:presentation"))
+
+    implementation(project(":userFeatures:userProfile:navigation"))
+    implementation(project(":userFeatures:userProfile:presentation"))
+
+
     implementation(project(":libraries:designSystem"))
-    implementation(project(":features:userAuth"))
+
+    implementation(project(":libraries:navigation:api"))
+    implementation(project(":libraries:navigation:api-impl"))
+    implementation(project(":libraries:common"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

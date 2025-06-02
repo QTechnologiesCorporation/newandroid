@@ -25,9 +25,6 @@ android {
 }
 
 dependencies {
-    //Extended Icons
-    api(libs.androidx.material.icons.extended.android)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
