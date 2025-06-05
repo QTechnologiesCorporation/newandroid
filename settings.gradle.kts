@@ -1,5 +1,47 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":businessFeatures:businessChat:presentation")
+
+
+include(":businessFeatures:businessChat:navigation")
+
+
+include(":businessFeatures:businessRecords:presentation")
+
+
+include(":businessFeatures:businessRecords:navigation")
+
+
+include(":businessFeatures:businessHome:presentation")
+
+
+include(":businessFeatures:businessHome:navigation")
+
+
+include(":userFeatures:userRecords:presentation")
+
+
+include(":userFeatures:userRecords:navigation")
+
+
+include(":userFeatures:userQi:presentation")
+
+
+include(":userFeatures:userQi:navigation")
+
+
+include(":userFeatures:userChat:presentation")
+
+
+include(":userFeatures:userChat:navigation")
+
+
+include(":userFeatures:qMedicalForm:presentation")
+
+
+include(":userFeatures:qMedicalForm:navigation")
+
+
 include(":businessFeatures:auth:presentation")
 
 
