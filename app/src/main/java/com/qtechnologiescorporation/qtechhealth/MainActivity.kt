@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity() {
                     navigationManager.setController(navController)
                     onDispose {
                         navigationManager.clear()
+
                     }
                 }
 
