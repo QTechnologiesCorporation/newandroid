@@ -6,12 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.qtechnologiescorporation.navigation.BusinessSignInScreenRoute
 import com.qtechnologiescorporation.navigation.ScreenARoute
 import com.qtechnologiescorporation.navigation.ScreenBRoute
 import com.qtechnologiescorporation.navigation.UserAskTypeRoute
+import com.qtechnologiescorporation.navigation.UserSignInRoute
 import com.qtechnologiescorporation.presentation.ScreenA
 import com.qtechnologiescorporation.presentation.ScreenB
+import com.qtechnologiescorporation.presentation.screens.BusinessSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserAskTypeScreen
+import com.qtechnologiescorporation.presentation.screens.UserSignInScreen
 import com.qtechnologiescorporation.presentation.viewmodels.UserAskTypes
 
 
@@ -28,8 +32,11 @@ fun QTechNavGraph(navController: NavHostController) {
         composable<UserAskTypeRoute> {
             UserAskTypeScreen()
         }
-        composable<ScreenARoute> {
-            ScreenA()
+        composable<UserSignInRoute> {
+            UserSignInScreen()
+        }
+        composable<BusinessSignInScreenRoute> {
+            BusinessSignInScreen()
         }
         composable<ScreenBRoute> {
             ScreenB()

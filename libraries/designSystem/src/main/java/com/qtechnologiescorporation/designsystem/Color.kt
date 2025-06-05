@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
  * Light theme colors
  * ------------------------------------------------------------------------------
  */
-internal val primaryLight = Color(0xFF00D998)
+internal val primaryLight = Color(                            0xFF00D998)
 internal val onPrimaryLight = Color.White
 internal val secondaryLight = Color.White
 internal val onSecondaryLight = Color.Black
@@ -25,7 +25,7 @@ internal val onPrimaryContainerLight = Color.White
  * ------------------------------------------------------------------------------
  */
 internal val primaryDark = Color(0xFF00D998)
-internal val onPrimaryDark = Color.Black
+internal val onPrimaryDark = Color.White
 internal val secondaryDark = Color(0xFF00D998)
 internal val onSecondaryDark = Color.White
 internal val backgroundDark = Color(0xFF1C1D21)

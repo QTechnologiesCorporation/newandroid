@@ -14,4 +14,5 @@ dependencies {
     implementation(project(":userFeatures:userAuth:navigation"))
     implementation(project(":userFeatures:userHome:navigation"))
     implementation(project(":userFeatures:userProfile:navigation"))
+    implementation(project(":businessFeatures:auth:navigation"))
 }

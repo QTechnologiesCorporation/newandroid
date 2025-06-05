@@ -5,8 +5,10 @@ import com.qtechnologiescorporation.api.NavControllerAccessor
 import com.qtechnologiescorporation.user.UserHomeNavigationImpl
 import com.qtechnologiescorporation.user.UserProfileNavigationImpl
 import com.qtechnologiescorporation.user.UserAskTypeNavigationImpl
+import com.qtechnologiescorporation.business.BusinessSignInNavigationImpl
 import com.qtechnologiescorporation.api_impl.manager.NavigationManager
 import com.qtechnologiescorporation.api_impl.manager.NavigationManagerImpl
+import com.qtechnologiescorporation.navigation.BusinessSignInNavigation
 import com.qtechnologiescorporation.navigation.DetailsNavigation
 import com.qtechnologiescorporation.navigation.HomeNavigation
 import com.qtechnologiescorporation.navigation.UserAskTypeNavigation
@@ -29,4 +31,5 @@ val NavigationModule = module {
     singleOf(::UserAskTypeNavigationImpl) { bind<UserAskTypeNavigation>() }
     singleOf(::UserHomeNavigationImpl) { bind<HomeNavigation>() }
     singleOf(::UserProfileNavigationImpl) { bind<DetailsNavigation>() }
+    singleOf(::BusinessSignInNavigationImpl) { bind<BusinessSignInNavigation>() }
 }

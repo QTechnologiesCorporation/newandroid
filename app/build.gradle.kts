@@ -27,6 +27,9 @@ dependencies {
     implementation(project(":userFeatures:userProfile:navigation"))
     implementation(project(":userFeatures:userProfile:presentation"))
 
+    implementation(project(":businessFeatures:auth:navigation"))
+    implementation(project(":businessFeatures:auth:presentation"))
+
 
     implementation(project(":libraries:designSystem"))
 

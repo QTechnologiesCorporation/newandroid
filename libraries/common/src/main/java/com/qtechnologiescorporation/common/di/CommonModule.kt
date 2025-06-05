@@ -26,11 +26,6 @@ import org.koin.dsl.module
 //    return CoroutineScope(Dispatchers.IO + supervisorJob)
 //}
 
-@Module
-@ComponentScan("com.qtechnologiescorporation.libraries.common")
-class CommonModule
-
-
 val CommonKoinModule = module {
     single {
         AppCoroutineDispatchers(

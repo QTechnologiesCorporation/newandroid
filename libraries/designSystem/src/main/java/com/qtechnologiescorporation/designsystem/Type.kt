@@ -2,6 +2,7 @@ package com.qtechnologiescorporation.designsystem
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -9,79 +10,78 @@ import androidx.compose.ui.unit.sp
 import com.qtechnologiescorporation.designsystem.R as Res
 
 
-@Composable
-private fun soraFontFamily(): FontFamily = FontFamily(
-    Font(Res.font.sora_bold),
+val SoraFontFamily = FontFamily(
+    Font(Res.font.sora_w200_extralight, FontWeight.W200),
+    Font(Res.font.sora_w400_regular, FontWeight.W400),
+    Font(Res.font.sora_w500_medium, FontWeight.W500),
+    Font(Res.font.sora_w600_semibold, FontWeight.W600),
+    Font(Res.font.sora_w700_bold, FontWeight.W700)
 )
 
-@Composable
-private fun interFontFamily(): FontFamily = FontFamily(
-    Font(Res.font.inter_regular, weight = FontWeight.W400),
+
+val InterFontFamily = FontFamily(
+    Font(Res.font.inter_w400_regular, FontWeight.W400),
+    Font(Res.font.inter_w700_bold, FontWeight.W700)
 )
 
-private val defaultTypography = Typography()
 
 @Composable
-internal fun myCustomTypography(): Typography {
-    val soraFontFamily = soraFontFamily()
-    val interFontFamily = interFontFamily()
-
+fun myCustomTypography(): Typography {
     return Typography(
-        displaySmall = defaultTypography.displaySmall.copy(
-            fontFamily = soraFontFamily,
+        displaySmall = TextStyle(
+            fontFamily = SoraFontFamily,
             fontWeight = FontWeight.W700,
             fontSize = 32.sp
         ),
-        headlineLarge = defaultTypography.headlineLarge.copy(
-            fontFamily = soraFontFamily,
+        headlineLarge = TextStyle(
+            fontFamily = SoraFontFamily,
             fontWeight = FontWeight.W700,
             fontSize = 24.sp
         ),
-        headlineMedium = defaultTypography.headlineMedium.copy(
-            fontFamily = soraFontFamily,
+        headlineMedium = TextStyle(
+            fontFamily = SoraFontFamily,
             fontWeight = FontWeight.W600,
             fontSize = 20.sp
         ),
-        headlineSmall = defaultTypography.headlineSmall.copy(
-            fontFamily = soraFontFamily,
+        headlineSmall = TextStyle(
+            fontFamily = SoraFontFamily,
             fontWeight = FontWeight.W500,
             fontSize = 18.sp
         ),
-        bodyLarge = defaultTypography.bodyLarge.copy(
-            fontFamily = interFontFamily,
+        bodyLarge = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 16.sp
-
         ),
-        bodyMedium = defaultTypography.bodyMedium.copy(
-            fontFamily = interFontFamily,
+        bodyMedium = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 14.sp
         ),
-        bodySmall = defaultTypography.bodySmall.copy(
-            fontFamily = interFontFamily,
+        bodySmall = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 12.sp
         ),
-        titleLarge = defaultTypography.titleLarge.copy(
-            fontFamily = soraFontFamily,
-            fontWeight = FontWeight.W500,
+        titleLarge = TextStyle(
+            fontFamily = SoraFontFamily,
+            fontWeight = FontWeight.W600,
             fontSize = 14.sp
         ),
-        labelLarge = defaultTypography.labelLarge.copy(
-            fontFamily = interFontFamily,
+        labelLarge = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 16.sp
         ),
-        labelMedium = defaultTypography.labelMedium.copy(
-            fontFamily = interFontFamily,
+        labelMedium = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 14.sp
         ),
-        labelSmall = defaultTypography.labelSmall.copy(
-            fontFamily = interFontFamily,
+        labelSmall = TextStyle(
+            fontFamily = InterFontFamily,
             fontWeight = FontWeight.W400,
             fontSize = 10.sp
-        ),
+        )
     )
 }

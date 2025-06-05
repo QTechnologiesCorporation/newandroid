@@ -1,5 +1,11 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":businessFeatures:auth:presentation")
+
+
+include(":businessFeatures:auth:navigation")
+
+
 include(":userFeatures:userAuth:presentation")
 
 

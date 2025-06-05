@@ -5,3 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data object UserAskTypeRoute : NavigationRoute
+@Serializable
+data object UserSignInRoute : NavigationRoute
+
+@Serializable
+data object UserSignUpRoute : NavigationRoute

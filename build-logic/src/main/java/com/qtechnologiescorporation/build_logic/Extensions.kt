@@ -79,7 +79,7 @@ fun Project.setupAndroidModule(isApplication: Boolean) {
             maybeCreate("debug")
             maybeCreate("release")
             named("release") {
-                isMinifyEnabled = true
+                isMinifyEnabled = false
                 proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro"

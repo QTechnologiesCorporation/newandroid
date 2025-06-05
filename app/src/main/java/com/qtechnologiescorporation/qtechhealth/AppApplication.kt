@@ -3,6 +3,8 @@ package com.qtechnologiescorporation.qtechhealth
 import android.app.Application
 import com.qtechnologiescorporation.common.di.CommonKoinModule
 import com.qtechnologiescorporation.di.NavigationModule
+import com.qtechnologiescorporation.presentation.di.BusinessSignInPresentationModule
+import com.qtechnologiescorporation.presentation.di.UserAskTypePresentationModule
 import com.qtechnologiescorporation.presentation.di.UserHomePresentationModule
 import com.qtechnologiescorporation.presentation.di.UserProfilePresentationModule
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +23,8 @@ class AppApplication : Application() {
                 NavigationModule,
                 UserHomePresentationModule,
                 UserProfilePresentationModule,
+                UserAskTypePresentationModule,
+                BusinessSignInPresentationModule
             )
         }
     }
