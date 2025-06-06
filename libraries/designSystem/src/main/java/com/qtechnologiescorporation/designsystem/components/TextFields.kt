@@ -55,7 +55,7 @@ fun OutlinedInputField(
         Text(
             text = label,
             style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.secondary
+            color = MaterialTheme.colorScheme.onPrimary
         )
 
         OutlinedTextField(
@@ -79,29 +79,17 @@ fun OutlinedInputField(
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                //temporarily disabled
-                disabledContainerColor = MaterialTheme.colorScheme.onBackground,
-                focusedTextColor = MaterialTheme.colorScheme.secondary,
-                unfocusedTextColor = MaterialTheme.colorScheme.secondary,
-                //temporarily disabled
-                disabledTextColor = MaterialTheme.colorScheme.secondary,
-                unfocusedLeadingIconColor = MaterialTheme.colorScheme.outline,
-                focusedLeadingIconColor = MaterialTheme.colorScheme.outline,
-                disabledLeadingIconColor = MaterialTheme.colorScheme.outline,
-                errorLeadingIconColor = MaterialTheme.colorScheme.outline,
-                unfocusedTrailingIconColor = MaterialTheme.colorScheme.outline,
-                focusedTrailingIconColor = MaterialTheme.colorScheme.outline,
-                disabledTrailingIconColor = MaterialTheme.colorScheme.outline,
-                errorTrailingIconColor = MaterialTheme.colorScheme.outline,
-                focusedPlaceholderColor = MaterialTheme.colorScheme.outline,
-                unfocusedPlaceholderColor = MaterialTheme.colorScheme.outline,
-                disabledPlaceholderColor = MaterialTheme.colorScheme.outline,
-                errorPlaceholderColor = MaterialTheme.colorScheme.outline,
-                //temporarily commented
-                //disabledBorderColor = MaterialTheme.colorScheme.outlineVariant,
-                unfocusedBorderColor = MaterialTheme.colorScheme.primary,
-                disabledBorderColor = MaterialTheme.colorScheme.primary,
-                focusedBorderColor = MaterialTheme.colorScheme.primary,
+                focusedTextColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedTextColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
+                focusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
+                unfocusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
+                focusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
+                focusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                unfocusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+                unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+                disabledBorderColor = MaterialTheme.colorScheme.secondary,
+                focusedBorderColor = MaterialTheme.colorScheme.secondary,
                 errorBorderColor = MaterialTheme.colorScheme.errorContainer,
             )
         )
