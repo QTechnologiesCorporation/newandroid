@@ -1,6 +1,5 @@
 package com.qtechnologiescorporation.designsystem.components
 
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -18,9 +17,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -47,6 +48,23 @@ fun OutlinedInputField(
     singleLine: Boolean = true,
     maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
     minLines: Int = 1,
+    labelColor: Color = MaterialTheme.colorScheme.onPrimary,
+    colors: TextFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedContainerColor = Color.Transparent,
+        unfocusedContainerColor = Color.Transparent,
+        focusedTextColor = MaterialTheme.colorScheme.onPrimary,
+        unfocusedTextColor = MaterialTheme.colorScheme.onPrimary,
+        unfocusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
+        focusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
+        unfocusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
+        focusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
+        focusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+        unfocusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
+        unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
+        disabledBorderColor = MaterialTheme.colorScheme.secondary,
+        focusedBorderColor = MaterialTheme.colorScheme.secondary,
+        errorBorderColor = MaterialTheme.colorScheme.errorContainer,
+    )
 ) {
     Column(
         modifier = modifier,
@@ -55,7 +73,7 @@ fun OutlinedInputField(
         Text(
             text = label,
             style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onPrimary
+            color = labelColor
         )
 
         OutlinedTextField(
@@ -76,22 +94,7 @@ fun OutlinedInputField(
             singleLine = singleLine,
             maxLines = maxLines,
             minLines = minLines,
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color.Transparent,
-                unfocusedContainerColor = Color.Transparent,
-                focusedTextColor = MaterialTheme.colorScheme.onPrimary,
-                unfocusedTextColor = MaterialTheme.colorScheme.onPrimary,
-                unfocusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
-                focusedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
-                unfocusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
-                focusedTrailingIconColor = MaterialTheme.colorScheme.onPrimary,
-                focusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
-                unfocusedPlaceholderColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.5f),
-                unfocusedBorderColor = MaterialTheme.colorScheme.secondary,
-                disabledBorderColor = MaterialTheme.colorScheme.secondary,
-                focusedBorderColor = MaterialTheme.colorScheme.secondary,
-                errorBorderColor = MaterialTheme.colorScheme.errorContainer,
-            )
+            colors = colors
         )
 
         InputFieldError(error)

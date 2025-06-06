@@ -1,25 +1,41 @@
 package com.qtechnologiescorporation.presentation.screens
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusEvent
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -29,9 +45,12 @@ import com.qtechnologiescorporation.designsystem.components.PrimaryButton
 import com.qtechnologiescorporation.designsystem.components.PrimaryHeading
 import com.qtechnologiescorporation.designsystem.components.primaryGradientBackground
 import com.qtechnologiescorporation.designsystem.spacing
+import com.qtechnologiescorporation.presentation.components.TermsAndConditionsCheckbox
+import com.qtechnologiescorporation.presentation.components.qTechTextFieldColors
 import com.qtechnologiescorporation.presentation.viewmodels.SignUpTextFieldEvents
 import com.qtechnologiescorporation.presentation.viewmodels.SignUpTextFieldStates
 import com.qtechnologiescorporation.presentation.viewmodels.UserSignUpViewModel
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -45,11 +64,16 @@ fun UserSignUpScreen(
     )
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun UserSignUpScreenContent(
     signUpTextFieldStates: SignUpTextFieldStates,
     signUpTextFieldEvent: (SignUpTextFieldEvents) -> Unit,
 ) {
+    var passwordVisibility by remember { mutableStateOf(false) }
+    var confirmPasswordVisibility by remember { mutableStateOf(false) }
+    val textFieldColors = qTechTextFieldColors()
+    val labelColor = MaterialTheme.colorScheme.onBackground
 
     Scaffold { innerPadding ->
         val backgroundBrush = primaryGradientBackground(1900f)
@@ -71,11 +95,11 @@ fun UserSignUpScreenContent(
                         .align(Alignment.Start)
                         .padding(
                             horizontal = MaterialTheme.spacing.large,
-                            vertical = MaterialTheme.spacing.large
+                            vertical = MaterialTheme.spacing.extraLarge
                         )
                 )
 
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
                 OutlinedInputField(
                     label = "Username",
                     value = signUpTextFieldStates.username,
@@ -84,6 +108,8 @@ fun UserSignUpScreenContent(
                     placeholder = {
                         Text("JhonDoe12@")
                     },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.usernameError
                 )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
@@ -95,6 +121,8 @@ fun UserSignUpScreenContent(
                     placeholder = {
                         Text("John Doe")
                     },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.nameError
                 )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
@@ -107,6 +135,8 @@ fun UserSignUpScreenContent(
                     placeholder = {
                         Text("placeholder@mail.com")
                     },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.emailError
                 )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
@@ -118,6 +148,8 @@ fun UserSignUpScreenContent(
                     placeholder = {
                         Text("+1234567890")
                     },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.phoneError
                 )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
@@ -127,21 +159,61 @@ fun UserSignUpScreenContent(
                     onChange = { signUpTextFieldEvent(SignUpTextFieldEvents.PasswordChanged(it)) },
                     modifier = Modifier.padding(horizontal = MaterialTheme.spacing.large),
                     placeholder = {
-                        Text("+1234567890")
+                        Text("Alex@123")
                     },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+                    trailingIcon = {
+                        val icon =
+                            if (passwordVisibility) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
+                        IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
+                            Icon(
+                                imageVector = icon,
+                                contentDescription = "Toggle password visibility"
+                            )
+                        }
+                    },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.passwordError
                 )
-                Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
                 OutlinedInputField(
                     label = "Confirm Password",
                     value = signUpTextFieldStates.confirmPassword,
-                    onChange = { signUpTextFieldEvent(SignUpTextFieldEvents.ConfirmPasswordChanged(it)) },
+                    onChange = {
+                        signUpTextFieldEvent(
+                            SignUpTextFieldEvents.ConfirmPasswordChanged(
+                                it
+                            )
+                        )
+                    },
                     modifier = Modifier.padding(horizontal = MaterialTheme.spacing.large),
                     placeholder = {
-                        Text("+1234567890")
+                        Text("Alex@123")
                     },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    visualTransformation = if (confirmPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+                    trailingIcon = {
+                        val icon =
+                            if (confirmPasswordVisibility) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
+                        IconButton(onClick = {
+                            confirmPasswordVisibility = !confirmPasswordVisibility
+                        }) {
+                            Icon(
+                                imageVector = icon,
+                                contentDescription = "Toggle password visibility"
+                            )
+                        }
+                    },
+                    labelColor = labelColor,
+                    colors = textFieldColors,
                     error = signUpTextFieldStates.confirmPasswordError
+                )
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                TermsAndConditionsCheckbox(
+                    isChecked = signUpTextFieldStates.termsAccepted,
+                    onCheckedChange = { signUpTextFieldEvent(SignUpTextFieldEvents.TermsAccepted(it)) },
                 )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge))
 

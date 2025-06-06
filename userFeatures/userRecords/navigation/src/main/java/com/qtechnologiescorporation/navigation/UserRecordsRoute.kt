@@ -3,8 +3,6 @@ package com.qtechnologiescorporation.navigation
 import com.qtechnologiescorporation.api.NavigationRoute
 import kotlinx.serialization.Serializable
 
-@Serializable
-data object QMedicalFormScreen1: NavigationRoute
 
 @Serializable
 data object MedicalRecords : NavigationRoute
