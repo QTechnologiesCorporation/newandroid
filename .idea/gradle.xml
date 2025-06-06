@@ -27,6 +27,15 @@
             <option value="$PROJECT_DIR$/businessFeatures/auth" />
             <option value="$PROJECT_DIR$/businessFeatures/auth/navigation" />
             <option value="$PROJECT_DIR$/businessFeatures/auth/presentation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessChat" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessChat/navigation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessChat/presentation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessHome" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessHome/navigation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessHome/presentation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessRecords" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessRecords/navigation" />
+            <option value="$PROJECT_DIR$/businessFeatures/businessRecords/presentation" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/userAuth" />
             <option value="$PROJECT_DIR$/features/userAuth/navigation" />
@@ -37,15 +46,27 @@
             <option value="$PROJECT_DIR$/libraries/navigation/api" />
             <option value="$PROJECT_DIR$/libraries/navigation/api-impl" />
             <option value="$PROJECT_DIR$/userFeatures" />
+            <option value="$PROJECT_DIR$/userFeatures/qMedicalForm" />
+            <option value="$PROJECT_DIR$/userFeatures/qMedicalForm/navigation" />
+            <option value="$PROJECT_DIR$/userFeatures/qMedicalForm/presentation" />
             <option value="$PROJECT_DIR$/userFeatures/userAuth" />
             <option value="$PROJECT_DIR$/userFeatures/userAuth/navigation" />
             <option value="$PROJECT_DIR$/userFeatures/userAuth/presentation" />
+            <option value="$PROJECT_DIR$/userFeatures/userChat" />
+            <option value="$PROJECT_DIR$/userFeatures/userChat/navigation" />
+            <option value="$PROJECT_DIR$/userFeatures/userChat/presentation" />
             <option value="$PROJECT_DIR$/userFeatures/userHome" />
             <option value="$PROJECT_DIR$/userFeatures/userHome/navigation" />
             <option value="$PROJECT_DIR$/userFeatures/userHome/presentation" />
             <option value="$PROJECT_DIR$/userFeatures/userProfile" />
             <option value="$PROJECT_DIR$/userFeatures/userProfile/navigation" />
             <option value="$PROJECT_DIR$/userFeatures/userProfile/presentation" />
+            <option value="$PROJECT_DIR$/userFeatures/userQi" />
+            <option value="$PROJECT_DIR$/userFeatures/userQi/navigation" />
+            <option value="$PROJECT_DIR$/userFeatures/userQi/presentation" />
+            <option value="$PROJECT_DIR$/userFeatures/userRecords" />
+            <option value="$PROJECT_DIR$/userFeatures/userRecords/navigation" />
+            <option value="$PROJECT_DIR$/userFeatures/userRecords/presentation" />
           </set>
         </option>
       </GradleProjectSettings>

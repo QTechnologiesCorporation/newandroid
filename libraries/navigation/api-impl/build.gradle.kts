@@ -14,5 +14,16 @@ dependencies {
     implementation(project(":userFeatures:userAuth:navigation"))
     implementation(project(":userFeatures:userHome:navigation"))
     implementation(project(":userFeatures:userProfile:navigation"))
+    implementation(project(":userFeatures:qMedicalForm:navigation"))
+    implementation(project(":userFeatures:userChat:navigation"))
     implementation(project(":businessFeatures:auth:navigation"))
+    implementation(project(":userFeatures:userQi:navigation"))
+    implementation(project(":userFeatures:userRecords:navigation"))
+
+
+    implementation(project(":businessFeatures:businessHome:navigation"))
+    implementation(project(":businessFeatures:businessRecords:navigation"))
+    implementation(project(":businessFeatures:businessChat:navigation"))
+
+
 }

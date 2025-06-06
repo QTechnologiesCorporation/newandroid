@@ -30,6 +30,29 @@ dependencies {
     implementation(project(":businessFeatures:auth:navigation"))
     implementation(project(":businessFeatures:auth:presentation"))
 
+    implementation(project(":userFeatures:qMedicalForm:navigation"))
+    implementation(project(":userFeatures:qMedicalForm:presentation"))
+
+    implementation(project(":userFeatures:userChat:navigation"))
+    implementation(project(":userFeatures:userChat:presentation"))
+
+    implementation(project(":userFeatures:userQi:navigation"))
+    implementation(project(":userFeatures:userQi:presentation"))
+
+    implementation(project(":userFeatures:userRecords:navigation"))
+    implementation(project(":userFeatures:userRecords:presentation"))
+
+
+    implementation(project(":businessFeatures:businessHome:navigation"))
+    implementation(project(":businessFeatures:businessHome:presentation"))
+
+    implementation(project(":businessFeatures:businessRecords:navigation"))
+    implementation(project(":businessFeatures:businessRecords:presentation"))
+
+    implementation(project(":businessFeatures:businessChat:navigation"))
+    implementation(project(":businessFeatures:businessChat:presentation"))
+
+
 
     implementation(project(":libraries:designSystem"))
 
