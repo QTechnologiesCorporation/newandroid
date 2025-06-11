@@ -39,10 +39,11 @@ import com.qtechnologiescorporation.designsystem.QTechHealthTheme
 import com.qtechnologiescorporation.designsystem.components.BaseCardScreen
 import com.qtechnologiescorporation.designsystem.components.OutlinedInputField
 import com.qtechnologiescorporation.designsystem.components.PrimaryButton
+import com.qtechnologiescorporation.designsystem.components.SecondaryHeading
 import com.qtechnologiescorporation.designsystem.spacing
-import com.qtechnologiescorporation.presentation.viewmodels.SignInEvents
-import com.qtechnologiescorporation.presentation.viewmodels.SignInTextFieldEvents
-import com.qtechnologiescorporation.presentation.viewmodels.SignInTextFieldStates
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignInEvents
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignInTextFieldEvents
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignInTextFieldStates
 import com.qtechnologiescorporation.presentation.viewmodels.UserSignInViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -69,18 +70,10 @@ fun UserSignInScreenContent(
 
     Scaffold { innerPadding ->
         BaseCardScreen(innerPadding = innerPadding, backgroundOffset = 1900f) {
-            Text(
-                text = "Welcome to Q Life!",
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onPrimary,
+            SecondaryHeading(
+                heading = "Welcome to Q Life!",
+                subheading = "Your Centralized Health Data Hub"
             )
-
-            Text(
-                text = "Your Centralized Health Data Hub",
-                style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.W200),
-                color = MaterialTheme.colorScheme.onPrimary,
-
-                )
 
             Text(
                 text = "Login",
@@ -92,8 +85,7 @@ fun UserSignInScreenContent(
                 modifier = Modifier
                     .align(Alignment.Start)
                     .padding(
-                        start = MaterialTheme.spacing.large,
-                        top = MaterialTheme.spacing.large
+                        top = MaterialTheme.spacing.large,
                     )
             )
 
@@ -108,7 +100,6 @@ fun UserSignInScreenContent(
                         )
                     )
                 },
-                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.large),
                 placeholder = {
                     Text("placeholder@mail.com")
                 },
@@ -125,7 +116,6 @@ fun UserSignInScreenContent(
                         )
                     )
                 },
-                modifier = Modifier.padding(horizontal = MaterialTheme.spacing.large),
                 placeholder = {
                     Text("Abc@1234")
                 },
@@ -144,10 +134,9 @@ fun UserSignInScreenContent(
                 error = signInTextFieldStates.passwordError
             )
             TextButton(
-                onClick = { /* TODO: Handle forgot password */ },
+                onClick = { signInEvent(SignInEvents.NavigateToForgotPassword) },
                 modifier = Modifier
-                    .align(Alignment.End)
-                    .padding(end = MaterialTheme.spacing.large),
+                    .align(Alignment.End),
                 contentPadding = PaddingValues(horizontal = MaterialTheme.spacing.small)
             ) {
                 Text(

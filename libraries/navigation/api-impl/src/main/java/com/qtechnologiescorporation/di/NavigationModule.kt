@@ -4,7 +4,7 @@ package com.qtechnologiescorporation.di
 import com.qtechnologiescorporation.api.NavControllerAccessor
 import com.qtechnologiescorporation.user.UserHomeNavigationImpl
 import com.qtechnologiescorporation.user.UserProfileNavigationImpl
-import com.qtechnologiescorporation.user.UserAskTypeNavigationImpl
+import com.qtechnologiescorporation.user.UserAuthNavigationImpl
 import com.qtechnologiescorporation.business.BusinessSignInNavigationImpl
 import com.qtechnologiescorporation.api_impl.manager.NavigationManager
 import com.qtechnologiescorporation.api_impl.manager.NavigationManagerImpl
@@ -18,7 +18,7 @@ import com.qtechnologiescorporation.navigation.BusinessSignInNavigation
 import com.qtechnologiescorporation.navigation.DetailsNavigation
 import com.qtechnologiescorporation.navigation.HomeNavigation
 import com.qtechnologiescorporation.navigation.QMedicalFormNavigation
-import com.qtechnologiescorporation.navigation.UserAskTypeNavigation
+import com.qtechnologiescorporation.navigation.UserAuthNavigation
 import com.qtechnologiescorporation.navigation.UserChatNavigation
 import com.qtechnologiescorporation.navigation.UserQiNavigation
 import com.qtechnologiescorporation.navigation.UserRecordsNavigation
@@ -38,7 +38,7 @@ val NavigationModule = module {
     }
 
     // Register feature-specific navigation implementations
-    singleOf(::UserAskTypeNavigationImpl) { bind<UserAskTypeNavigation>() }
+    singleOf(::UserAuthNavigationImpl) { bind<UserAuthNavigation>() }
     singleOf(::UserHomeNavigationImpl) { bind<HomeNavigation>() }
     singleOf(::UserProfileNavigationImpl) { bind<DetailsNavigation>() }
     singleOf(::BusinessSignInNavigationImpl) { bind<BusinessSignInNavigation>() }

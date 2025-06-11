@@ -10,3 +10,6 @@ data object UserSignInRoute : NavigationRoute
 
 @Serializable
 data object UserSignUpRoute : NavigationRoute
+
+@Serializable
+data object UserForgotPasswordRoute : NavigationRoute

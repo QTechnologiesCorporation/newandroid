@@ -1,4 +1,4 @@
-package com.qtechnologiescorporation.presentation.viewmodels
+package com.qtechnologiescorporation.presentation.stateAndEvents
 
 data class SignInTextFieldStates(
     val username: String = "",
@@ -15,4 +15,5 @@ sealed class SignInTextFieldEvents {
 
 sealed class SignInEvents {
     data object NavigateToSignUp : SignInEvents()
+    data object NavigateToForgotPassword : SignInEvents()
 }

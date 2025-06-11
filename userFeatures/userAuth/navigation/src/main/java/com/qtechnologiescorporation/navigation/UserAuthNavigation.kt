@@ -1,7 +1,10 @@
 package com.qtechnologiescorporation.navigation
 
-interface UserAskTypeNavigation {
+interface UserAuthNavigation {
     fun navigateToUserPortal()
     fun navigateToBusinessPortal()
     fun navigateToSignUp()
+
+    fun navigateToForgotPassword()
+    fun navigateToLogin()
 }

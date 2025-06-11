@@ -40,8 +40,8 @@ import com.qtechnologiescorporation.designsystem.components.PrimaryHeading
 import com.qtechnologiescorporation.designsystem.spacing
 import com.qtechnologiescorporation.presentation.components.TermsAndConditionsCheckbox
 import com.qtechnologiescorporation.presentation.components.qTechTextFieldColors
-import com.qtechnologiescorporation.presentation.viewmodels.SignUpTextFieldEvents
-import com.qtechnologiescorporation.presentation.viewmodels.SignUpTextFieldStates
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignUpTextFieldEvents
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignUpTextFieldStates
 import com.qtechnologiescorporation.presentation.viewmodels.UserSignUpViewModel
 import org.koin.androidx.compose.koinViewModel
 

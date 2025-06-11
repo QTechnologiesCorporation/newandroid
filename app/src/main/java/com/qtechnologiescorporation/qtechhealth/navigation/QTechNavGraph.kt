@@ -13,9 +13,11 @@ import com.qtechnologiescorporation.navigation.ScreenBRoute
 import com.qtechnologiescorporation.navigation.UserAskTypeRoute
 import com.qtechnologiescorporation.navigation.UserSignInRoute
 import com.qtechnologiescorporation.navigation.UserSignUpRoute
+import com.qtechnologiescorporation.navigation.UserForgotPasswordRoute
 import com.qtechnologiescorporation.presentation.ScreenB
 import com.qtechnologiescorporation.presentation.screens.BusinessSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserAskTypeScreen
+import com.qtechnologiescorporation.presentation.screens.UserForgotPasswordScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignUpScreen
 
@@ -41,6 +43,9 @@ fun QTechNavGraph(navController: NavHostController) {
         }
         composable<UserSignUpRoute> {
             UserSignUpScreen()
+        }
+        composable<UserForgotPasswordRoute> {
+            UserForgotPasswordScreen()
         }
         composable<ScreenBRoute> {
             ScreenB()

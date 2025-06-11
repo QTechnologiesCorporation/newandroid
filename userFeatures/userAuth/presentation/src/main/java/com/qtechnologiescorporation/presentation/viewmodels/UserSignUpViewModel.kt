@@ -1,7 +1,9 @@
 package com.qtechnologiescorporation.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.qtechnologiescorporation.navigation.UserAskTypeNavigation
+import com.qtechnologiescorporation.navigation.UserAuthNavigation
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignUpTextFieldEvents
+import com.qtechnologiescorporation.presentation.stateAndEvents.SignUpTextFieldStates
 import com.qtechnologiescorporation.presentation.utils.Validator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +13,7 @@ import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
 class UserSignUpViewModel(
-    private val navigation: UserAskTypeNavigation
+    private val navigation: UserAuthNavigation
 ) : ViewModel() {
 
     private val _signUpTextFieldState = MutableStateFlow(SignUpTextFieldStates())

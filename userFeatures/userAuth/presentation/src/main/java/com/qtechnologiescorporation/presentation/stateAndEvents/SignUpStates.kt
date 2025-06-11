@@ -1,4 +1,4 @@
-package com.qtechnologiescorporation.presentation.viewmodels
+package com.qtechnologiescorporation.presentation.stateAndEvents
 
 data class SignUpTextFieldStates(
     val username: String = "",
