@@ -1,13 +1,19 @@
 package com.qtechnologiescorporation.presentation.di
 
-//@Module
-//@ComponentScan("com.qtechnologiescorporation.features.userProfile.presentation")
-//class UserProfilePresentationModule
+
 
 import com.qtechnologiescorporation.presentation.UserProfileViewModel
+import com.qtechnologiescorporation.presentation.viewmodels.ConnectionsViewModel
+import com.qtechnologiescorporation.presentation.viewmodels.ManageProfileViewModel
+import com.qtechnologiescorporation.presentation.viewmodels.ProfileViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val UserProfilePresentationModule = module {
     viewModelOf(::UserProfileViewModel)
+    viewModelOf(::ProfileViewModel)
+    viewModelOf(::ManageProfileViewModel)
+    viewModelOf(::ConnectionsViewModel)
+
+
 }
