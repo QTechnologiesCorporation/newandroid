@@ -28,7 +28,8 @@ import com.qtechnologiescorporation.presentation.screens.UserUploadDocumentsScre
 fun QTechNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = UserAskTypeRoute,
+        //startDestination = UserAskTypeRoute,
+        startDestination = UserUploadDocumentRoute,
         enterTransition = { slideInHorizontally { it } },
         exitTransition = { slideOutHorizontally { -it } },
         popEnterTransition = { slideInHorizontally { -it } },

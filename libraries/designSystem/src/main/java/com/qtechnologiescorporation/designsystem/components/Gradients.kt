@@ -23,8 +23,9 @@ fun primaryGradientBackground(offsetY: Float = 1200f): Brush {
     } else {
         Brush.verticalGradient(
             colors = listOf(
-                Color(0xFFEBEBEB),
-                Color(0xFFB4F4E0),
+                Color.White,
+                //Color(0xFFEBEBEB),
+                //Color(0xFFB4F4E0),
                 Color(0xFF00D998).copy(alpha = 0.5f)
             ),
             startY = offsetY,

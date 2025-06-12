@@ -1,6 +1,5 @@
 package com.qtechnologiescorporation.presentation.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +20,7 @@ import com.qtechnologiescorporation.designsystem.QTechHealthTheme
 import com.qtechnologiescorporation.designsystem.components.BaseScreen
 import com.qtechnologiescorporation.designsystem.components.DescriptionText
 import com.qtechnologiescorporation.designsystem.components.OutlinedDropdownField
+import com.qtechnologiescorporation.designsystem.components.OutlinedDropdownField2
 import com.qtechnologiescorporation.designsystem.components.PrimaryHeading
 import com.qtechnologiescorporation.designsystem.spacing
 import com.qtechnologiescorporation.presentation.stateAndEvents.UploadDocumentsEvents
@@ -39,7 +39,7 @@ fun UserUploadDocumentsScreen(
     )
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 fun UserUploadDocumentsScreenContent(
     uploadDocumentsStates: UploadDocumentsStates,
@@ -69,6 +69,23 @@ fun UserUploadDocumentsScreenContent(
                     textAlign = TextAlign.Start,
                     color = MaterialTheme.colorScheme.onSecondary,
                 )
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.mediumLarge))
+                OutlinedDropdownField2(
+                    label = "Select Document",
+                    value = uploadDocumentsStates.selectedDocumentType,
+                    onValueChange = {
+                        uploadDocumentsEvents(
+                            UploadDocumentsEvents.OnDocumentTypeSelected(
+                                it
+                            )
+                        )
+                    },
+                    items = listOf("National ID", "Passport", "Driving License"),
+                    displayText = { it },
+                    placeholder = {
+                        Text("Choose document", color = MaterialTheme.colorScheme.onSecondary)
+                    },
+                )
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
                 OutlinedDropdownField(
                     label = "Select Document",
@@ -82,10 +99,15 @@ fun UserUploadDocumentsScreenContent(
                     },
                     items = listOf("National ID", "Passport", "Driving License"),
                     displayText = { it },
-                    placeholder = {
-                        Text("Choose document")
-                    },
+                    placeholderText = "Choose document",
                 )
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
+                DescriptionText(
+                    description = "Temporary text: Securely verify your identity by uploading a valid document.",
+                    textAlign = TextAlign.Start,
+                    color = MaterialTheme.colorScheme.onSecondary,
+                )
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
             }
         }
     }
