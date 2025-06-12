@@ -31,7 +31,7 @@ fun PrimaryHeading(
 }
 
 @Composable
-fun SecondaryHeading(
+fun SecondaryHeadingAndSubHeading(
     heading: String,
     subheading: String? = null,
     color: Color = MaterialTheme.colorScheme.onPrimary,
@@ -69,12 +69,13 @@ fun DescriptionText(
     description: String,
     color: Color = MaterialTheme.colorScheme.onPrimary,
     style: TextStyle = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.W200),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    textAlign: TextAlign = TextAlign.Center
 ) {
     Text(
         text = description,
         style = style,
         color = color,
-        textAlign = TextAlign.Center
+        textAlign = textAlign
     )
 }

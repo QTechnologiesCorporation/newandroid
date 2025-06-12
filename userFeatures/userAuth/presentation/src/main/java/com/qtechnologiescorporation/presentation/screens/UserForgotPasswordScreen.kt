@@ -46,7 +46,7 @@ import com.qtechnologiescorporation.designsystem.components.BaseCardScreen
 import com.qtechnologiescorporation.designsystem.components.DescriptionText
 import com.qtechnologiescorporation.designsystem.components.OutlinedInputField
 import com.qtechnologiescorporation.designsystem.components.PrimaryButton
-import com.qtechnologiescorporation.designsystem.components.SecondaryHeading
+import com.qtechnologiescorporation.designsystem.components.SecondaryHeadingAndSubHeading
 import com.qtechnologiescorporation.designsystem.spacing
 import com.qtechnologiescorporation.presentation.R
 import com.qtechnologiescorporation.presentation.stateAndEvents.ForgotPasswordEvents
@@ -142,7 +142,7 @@ fun ForgotPasswordEmailScreen(
     onProceed: () -> Unit
 ) {
     BaseCardScreen(innerPadding = innerPadding) {
-        SecondaryHeading(
+        SecondaryHeadingAndSubHeading(
             "Forgot Password",
             "Enter your registered email address to receive a secure OTP. Verify it to reset your password safely and regain access."
         )
@@ -174,7 +174,7 @@ fun ForgotPasswordOtpScreen(
     onProceed: () -> Unit
 ) {
     BaseCardScreen(innerPadding = innerPadding) {
-        SecondaryHeading(
+        SecondaryHeadingAndSubHeading(
             "Enter OTP",
             "We’ve sent a one-time password to your registered email. Please enter it below to verify your identity and continue."
         )
@@ -255,7 +255,7 @@ fun ForgotPasswordResetScreen(
     onSubmit: () -> Unit
 ) {
     BaseCardScreen(innerPadding = innerPadding) {
-        SecondaryHeading(
+        SecondaryHeadingAndSubHeading(
             "Reset Password",
             "Create a new password for your account. "
         )
@@ -294,7 +294,7 @@ fun ForgotPasswordSuccessScreen(
     onDone: () -> Unit
 ) {
     BaseCardScreen(innerPadding = innerPadding) {
-        SecondaryHeading("Success")
+        SecondaryHeadingAndSubHeading("Success")
         Spacer(Modifier.height(MaterialTheme.spacing.mediumLarge))
         Icon(
             painter = painterResource(R.drawable.success),

@@ -7,4 +7,6 @@ interface UserAuthNavigation {
 
     fun navigateToForgotPassword()
     fun navigateToLogin()
+
+    fun navigateToUploadDocument()
 }

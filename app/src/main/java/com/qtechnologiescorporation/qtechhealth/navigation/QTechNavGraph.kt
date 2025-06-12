@@ -14,12 +14,14 @@ import com.qtechnologiescorporation.navigation.UserAskTypeRoute
 import com.qtechnologiescorporation.navigation.UserSignInRoute
 import com.qtechnologiescorporation.navigation.UserSignUpRoute
 import com.qtechnologiescorporation.navigation.UserForgotPasswordRoute
+import com.qtechnologiescorporation.navigation.UserUploadDocumentRoute
 import com.qtechnologiescorporation.presentation.ScreenB
 import com.qtechnologiescorporation.presentation.screens.BusinessSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserAskTypeScreen
 import com.qtechnologiescorporation.presentation.screens.UserForgotPasswordScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignUpScreen
+import com.qtechnologiescorporation.presentation.screens.UserUploadDocumentsScreen
 
 
 @Composable
@@ -46,6 +48,9 @@ fun QTechNavGraph(navController: NavHostController) {
         }
         composable<UserForgotPasswordRoute> {
             UserForgotPasswordScreen()
+        }
+        composable<UserUploadDocumentRoute> {
+            UserUploadDocumentsScreen()
         }
         composable<ScreenBRoute> {
             ScreenB()

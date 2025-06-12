@@ -13,7 +13,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -204,11 +203,13 @@ fun UserSignUpScreenContent(
 
                 PrimaryButton(
                     label = "Sign Up",
-                    onClick = { },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.secondary,
-                        contentColor = MaterialTheme.colorScheme.onSecondary
-                    ),
+                    onClick = {
+                        signUpTextFieldEvent(SignUpTextFieldEvents.NavigateToUploadDocument)
+                    },
+//                    colors = ButtonDefaults.buttonColors(
+//                        containerColor = MaterialTheme.colorScheme.secondary,
+//                        contentColor = MaterialTheme.colorScheme.onSecondary
+//                    ),
                     modifier = Modifier.width(266.dp),
                     shape = RoundedCornerShape(10.dp),
                 )

@@ -13,3 +13,6 @@ data object UserSignUpRoute : NavigationRoute
 
 @Serializable
 data object UserForgotPasswordRoute : NavigationRoute
+
+@Serializable
+data object UserUploadDocumentRoute : NavigationRoute

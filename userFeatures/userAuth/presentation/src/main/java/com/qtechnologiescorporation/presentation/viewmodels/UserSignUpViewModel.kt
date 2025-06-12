@@ -93,6 +93,10 @@ class UserSignUpViewModel(
                     )
                 }
             }
+
+            SignUpTextFieldEvents.NavigateToUploadDocument -> {
+                navigation.navigateToUploadDocument()
+            }
         }
     }
 }

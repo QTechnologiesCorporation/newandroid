@@ -39,7 +39,7 @@ import com.qtechnologiescorporation.designsystem.QTechHealthTheme
 import com.qtechnologiescorporation.designsystem.components.BaseCardScreen
 import com.qtechnologiescorporation.designsystem.components.OutlinedInputField
 import com.qtechnologiescorporation.designsystem.components.PrimaryButton
-import com.qtechnologiescorporation.designsystem.components.SecondaryHeading
+import com.qtechnologiescorporation.designsystem.components.SecondaryHeadingAndSubHeading
 import com.qtechnologiescorporation.designsystem.spacing
 import com.qtechnologiescorporation.presentation.stateAndEvents.SignInEvents
 import com.qtechnologiescorporation.presentation.stateAndEvents.SignInTextFieldEvents
@@ -70,7 +70,7 @@ fun UserSignInScreenContent(
 
     Scaffold { innerPadding ->
         BaseCardScreen(innerPadding = innerPadding, backgroundOffset = 1900f) {
-            SecondaryHeading(
+            SecondaryHeadingAndSubHeading(
                 heading = "Welcome to Q Life!",
                 subheading = "Your Centralized Health Data Hub"
             )
@@ -101,7 +101,7 @@ fun UserSignInScreenContent(
                     )
                 },
                 placeholder = {
-                    Text("placeholder@mail.com")
+                    Text("Alex@123")
                 },
                 error = signInTextFieldStates.usernameError
             )

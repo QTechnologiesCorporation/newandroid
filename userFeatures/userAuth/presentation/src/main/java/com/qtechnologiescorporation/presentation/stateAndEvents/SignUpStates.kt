@@ -25,4 +25,6 @@ sealed class SignUpTextFieldEvents {
     data class PasswordChanged(val password: String) : SignUpTextFieldEvents()
     data class ConfirmPasswordChanged(val confirmPassword: String) : SignUpTextFieldEvents()
     data class TermsAccepted(val termsAccepted: Boolean) : SignUpTextFieldEvents()
+
+    data object NavigateToUploadDocument : SignUpTextFieldEvents()
 }
