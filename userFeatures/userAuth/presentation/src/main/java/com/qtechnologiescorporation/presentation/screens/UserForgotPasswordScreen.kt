@@ -48,7 +48,7 @@ import com.qtechnologiescorporation.designsystem.components.OutlinedInputField
 import com.qtechnologiescorporation.designsystem.components.PrimaryButton
 import com.qtechnologiescorporation.designsystem.components.SecondaryHeadingAndSubHeading
 import com.qtechnologiescorporation.designsystem.spacing
-import com.qtechnologiescorporation.presentation.R
+import com.qtechnologiescorporation.designsystem.R as Res
 import com.qtechnologiescorporation.presentation.stateAndEvents.ForgotPasswordEvents
 import com.qtechnologiescorporation.presentation.stateAndEvents.ForgotPasswordStates
 import com.qtechnologiescorporation.presentation.viewmodels.UserForgotPasswordViewModel
@@ -180,19 +180,9 @@ fun ForgotPasswordOtpScreen(
         )
         Spacer(Modifier.height(MaterialTheme.spacing.mediumLarge))
 
-        OtpInputFields(otpLength = 4) { otp ->
+        OtpInputFields(otpLength = 6) { otp ->
 
         }
-//        Row(horizontalArrangement = Arrangement.SpaceEvenly) {
-//            repeat(4) {
-//                OutlinedInputField(
-//                    label = "",
-//                    value = "",
-//                    onChange = {},
-//                    modifier = Modifier.width(40.dp)
-//                )
-//            }
-//        }
         Spacer(Modifier.height(MaterialTheme.spacing.mediumLarge))
         PrimaryButton(
             label = "Proceed", onClick = onProceed,
@@ -297,7 +287,7 @@ fun ForgotPasswordSuccessScreen(
         SecondaryHeadingAndSubHeading("Success")
         Spacer(Modifier.height(MaterialTheme.spacing.mediumLarge))
         Icon(
-            painter = painterResource(R.drawable.success),
+            painter = painterResource(Res.drawable.success),
             contentDescription = null,
             tint = MaterialTheme.colorScheme.secondary,
             modifier = Modifier.size(80.dp)

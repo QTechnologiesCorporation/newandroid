@@ -5,6 +5,7 @@ import com.qtechnologiescorporation.presentation.viewmodels.UserForgotPasswordVi
 import com.qtechnologiescorporation.presentation.viewmodels.UserSignInViewModel
 import com.qtechnologiescorporation.presentation.viewmodels.UserSignUpViewModel
 import com.qtechnologiescorporation.presentation.viewmodels.UserUploadDocumentsViewModel
+import com.qtechnologiescorporation.presentation.viewmodels.UserVerifyFaceViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -14,4 +15,5 @@ val UserAskTypePresentationModule = module {
     viewModelOf(::UserSignUpViewModel)
     viewModelOf(::UserForgotPasswordViewModel)
     viewModelOf(::UserUploadDocumentsViewModel)
+    viewModelOf(::UserVerifyFaceViewModel)
 }

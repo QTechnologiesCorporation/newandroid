@@ -8,6 +8,7 @@ import com.qtechnologiescorporation.navigation.UserForgotPasswordRoute
 import com.qtechnologiescorporation.navigation.UserSignInRoute
 import com.qtechnologiescorporation.navigation.UserSignUpRoute
 import com.qtechnologiescorporation.navigation.UserUploadDocumentRoute
+import com.qtechnologiescorporation.navigation.UserVerifyFaceRoute
 import org.koin.core.annotation.Single
 
 @Single(binds = [UserAuthNavigation::class])
@@ -57,6 +58,14 @@ class UserAuthNavigationImpl(
         navigationManager.navigate(
             command = NavigationCommand.NavigateToRoute(
                 route = UserUploadDocumentRoute
+            )
+        )
+    }
+
+    override fun navigateToVerifyFace() {
+        navigationManager.navigate(
+            command = NavigationCommand.NavigateToRoute(
+                route = UserVerifyFaceRoute
             )
         )
     }

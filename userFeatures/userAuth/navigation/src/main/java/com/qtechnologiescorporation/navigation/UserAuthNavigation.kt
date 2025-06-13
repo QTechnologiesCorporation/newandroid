@@ -9,4 +9,6 @@ interface UserAuthNavigation {
     fun navigateToLogin()
 
     fun navigateToUploadDocument()
+
+    fun navigateToVerifyFace()
 }

@@ -144,7 +144,7 @@ fun OutlinedInputField(
 
 @OptIn(ExperimentalMaterial3Api::class) // Or androidx.compose.material.ExposedDropdownMenuBox for M2
 @Composable
-fun <T> OutlinedDropdownField(
+fun <T> OutlinedDropdownField2(
     label: String,
     value: T?,
     onValueChange: (T) -> Unit,
@@ -249,7 +249,7 @@ fun <T> OutlinedDropdownField(
 }
 
 @Composable
-fun <T> OutlinedDropdownField2(
+fun <T> OutlinedDropdownField(
     label: String,
     value: T?,
     onValueChange: (T) -> Unit,
@@ -393,178 +393,6 @@ fun <T> OutlinedDropdownField2(
     }
 }
 
-//@Composable
-//fun <T> OutlinedDropdownField3(
-//    label: String,
-//    value: T?,
-//    onValueChange: (T) -> Unit,
-//    items: List<T>,
-//    modifier: Modifier = Modifier,
-//    displayText: (T) -> String = { it.toString() },
-//    placeholder: @Composable (() -> Unit)? = null,
-//    leadingIcon: @Composable (() -> Unit)? = null,
-//    trailingIcon: @Composable (() -> Unit)? = null,
-//    error: String? = null,
-//    shape: Shape = RoundedCornerShape(8.dp),
-//    labelColor: Color = MaterialTheme.colorScheme.onSecondary,
-//    iconColor: Color = MaterialTheme.colorScheme.onSecondary,
-//    menuItemIcon: (T) -> ImageVector? = { null }
-//) {
-//    var expanded by remember { mutableStateOf(false) }
-//    val borderColor =
-//        if (error != null) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
-//    val rotationState by animateFloatAsState(
-//        targetValue = if (expanded) 180f else 0f, label = "Dropdown Arrow Rotation"
-//    )
-//
-//    var surfaceSize by remember { mutableStateOf(IntSize.Zero) }
-//    val density = LocalDensity.current
-//
-//    Column(modifier = modifier) {
-//        Text(
-//            text = label,
-//            style = MaterialTheme.typography.labelLarge,
-//            color = labelColor
-//        )
-//        Spacer(Modifier.height(MaterialTheme.spacing.small))
-//
-//        Surface(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .onGloballyPositioned { coordinates ->
-//                    surfaceSize = coordinates.size
-//                }
-//                .clickable { expanded = !expanded },
-//            shape = shape,
-//            border = BorderStroke(1.dp, borderColor),
-//            color = Color.Transparent,
-//        ) {
-//            Column(modifier = Modifier.fillMaxWidth()) {
-//                Row(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .padding(12.dp),
-//                    verticalAlignment = Alignment.CenterVertically,
-//                    horizontalArrangement = Arrangement.SpaceBetween
-//                ) {
-//                    Row(verticalAlignment = Alignment.CenterVertically) {
-//                        leadingIcon?.let {
-//                            it()
-//                            Spacer(Modifier.width(8.dp))
-//                        }
-//                        if ((value == null || (value is String && value.isEmpty())) && placeholder != null) {
-//                            placeholder()
-//                        } else {
-//                            Text(
-//                                text = value?.let(displayText) ?: "",
-//                                style = MaterialTheme.typography.bodyLarge,
-//                                color = MaterialTheme.colorScheme.onSecondary
-//                            )
-//                        }
-//                    }
-//
-//                    trailingIcon?.let {
-//                        it()
-//                    } ?: Icon(
-//                        imageVector = Icons.Default.KeyboardArrowDown,
-//                        contentDescription = null,
-//                        tint = iconColor,
-//                        modifier = Modifier.rotate(rotationState)
-//                    )
-//                }
-//            }
-//        }
-//
-//        if (expanded) {
-//            Popup(
-//                onDismissRequest = { expanded = false },
-//                properties = PopupProperties(focusable = true),
-//                // Corrected: Use IntOffset and convert Dp to pixels using density.roundToPx()
-//                offset = IntOffset(
-//                    x = 0, // 0.dp in pixels is 0
-//                    y = with(density) {
-//                        // Calculate the Y offset in Dp, then convert the result to pixels
-//                        (surfaceSize.height.toDp() + MaterialTheme.spacing.extraSmall).roundToPx()
-//                    }
-//                )
-//            ) {
-//                Surface(
-//                    modifier = Modifier
-//                        .width(with(density) { surfaceSize.width.toDp() })
-//                        .wrapContentHeight(),
-//                    shape = shape,
-//                    border = BorderStroke(1.dp, borderColor),
-//                    color = MaterialTheme.colorScheme.surface
-//                ) {
-//                    AnimatedVisibility(visible = expanded) {
-//                        Column(modifier = Modifier.fillMaxWidth()) {
-//                            items.forEachIndexed { index, item ->
-//                                val isSelected = value == item
-//                                Row(
-//                                    modifier = Modifier
-//                                        .fillMaxWidth()
-//                                        .clickable {
-//                                            expanded = false
-//                                            onValueChange(item)
-//                                        }
-//                                        .padding(horizontal = 12.dp, vertical = 10.dp),
-//                                    verticalAlignment = Alignment.CenterVertically
-//                                ) {
-//                                    menuItemIcon(item)?.let {
-//                                        Icon(
-//                                            imageVector = it,
-//                                            contentDescription = null,
-//                                            tint = iconColor,
-//                                            modifier = Modifier.size(20.dp)
-//                                        )
-//                                        Spacer(Modifier.width(8.dp))
-//                                    }
-//                                    Text(
-//                                        text = displayText(item),
-//                                        style = MaterialTheme.typography.bodyLarge,
-//                                        color = MaterialTheme.colorScheme.onSecondary,
-//                                        modifier = Modifier
-//                                            .weight(1f)
-//                                            .padding(vertical = MaterialTheme.spacing.extraSmall)
-//                                    )
-//                                    if (isSelected) {
-//                                        Icon(
-//                                            imageVector = Icons.Default.Check,
-//                                            contentDescription = "Selected",
-//                                            tint = iconColor
-//                                        )
-//                                    }
-//                                }
-//                                if (index < items.size - 1) {
-//                                    HorizontalDivider(
-//                                        modifier = Modifier
-//                                            .fillMaxWidth()
-//                                            .padding(
-//                                                horizontal = MaterialTheme.spacing.medium
-//                                            ),
-//                                        thickness = 1.dp,
-//                                        color = MaterialTheme.colorScheme.onSecondary.copy(alpha = 0.2f)
-//                                    )
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//
-//        error?.let {
-//            Text(
-//                text = it,
-//                style = MaterialTheme.typography.labelSmall,
-//                color = MaterialTheme.colorScheme.error,
-//                modifier = Modifier.padding(top = 4.dp)
-//            )
-//        }
-//    }
-//}
-
-
 @Composable
 private fun InputFieldError(
     error: String?,
@@ -632,10 +460,9 @@ private fun InputFieldsPreview() {
                 },
                 items = listOf("National ID", "Passport", "Driving License"),
                 displayText = { it },
-                placeholderText = "Choose document",
-//                placeholder = {
-//                    Text("Choose document")
-//                },
+                placeholder = {
+                    Text("Choose document")
+                },
             )
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.small))
