@@ -5,6 +5,7 @@ import com.qtechnologiescorporation.api_impl.manager.NavigationManager
 import com.qtechnologiescorporation.navigation.BusinessSignInScreenRoute
 import com.qtechnologiescorporation.navigation.UserAuthNavigation
 import com.qtechnologiescorporation.navigation.UserForgotPasswordRoute
+import com.qtechnologiescorporation.navigation.UserHomeScreenRoute
 import com.qtechnologiescorporation.navigation.UserSignInRoute
 import com.qtechnologiescorporation.navigation.UserSignUpRoute
 import com.qtechnologiescorporation.navigation.UserUploadDocumentRoute
@@ -66,6 +67,14 @@ class UserAuthNavigationImpl(
         navigationManager.navigate(
             command = NavigationCommand.NavigateToRoute(
                 route = UserVerifyFaceRoute
+            )
+        )
+    }
+
+    override fun navigateToHomeScreen() {
+        navigationManager.navigate(
+            command = NavigationCommand.NavigateToRoute(
+                route = UserHomeScreenRoute
             )
         )
     }

@@ -16,10 +16,12 @@ import com.qtechnologiescorporation.navigation.UserSignUpRoute
 import com.qtechnologiescorporation.navigation.UserForgotPasswordRoute
 import com.qtechnologiescorporation.navigation.UserUploadDocumentRoute
 import com.qtechnologiescorporation.navigation.UserVerifyFaceRoute
+import com.qtechnologiescorporation.navigation.UserHomeScreenRoute
 import com.qtechnologiescorporation.presentation.ScreenB
 import com.qtechnologiescorporation.presentation.screens.BusinessSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserAskTypeScreen
 import com.qtechnologiescorporation.presentation.screens.UserForgotPasswordScreen
+import com.qtechnologiescorporation.presentation.screens.UserHomeScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignInScreen
 import com.qtechnologiescorporation.presentation.screens.UserSignUpScreen
 import com.qtechnologiescorporation.presentation.screens.UserUploadDocumentsScreen
@@ -30,7 +32,7 @@ import com.qtechnologiescorporation.presentation.screens.UserVerifyFaceScreen
 fun QTechNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = UserAskTypeRoute,
+        startDestination = UserHomeScreenRoute,
         //startDestination = UserUploadDocumentRoute,
         enterTransition = { slideInHorizontally { it } },
         exitTransition = { slideOutHorizontally { -it } },
@@ -57,6 +59,9 @@ fun QTechNavGraph(navController: NavHostController) {
         }
         composable<UserVerifyFaceRoute> {
             UserVerifyFaceScreen()
+        }
+        composable<UserHomeScreenRoute> {
+            UserHomeScreen()
         }
         composable<ScreenBRoute> {
             ScreenB()

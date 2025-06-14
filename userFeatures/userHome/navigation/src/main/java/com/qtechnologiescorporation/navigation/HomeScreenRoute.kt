@@ -5,3 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data object ScreenARoute : NavigationRoute
+
+@Serializable
+data object UserHomeScreenRoute : NavigationRoute

@@ -1,11 +1,7 @@
 package com.qtechnologiescorporation.presentation.di
 
-//@Module
-//@ComponentScan("com.qtechnologiescorporation.features.userHome.presentation")
-//class UserHomePresentationModule
 
-
-import com.qtechnologiescorporation.presentation.UserHomeViewModel
+import com.qtechnologiescorporation.presentation.viewmodels.UserHomeViewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 

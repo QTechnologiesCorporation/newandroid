@@ -92,11 +92,9 @@ fun UserVerifyFaceScreenContent(
                     PrimaryCustomAlertDialog(
                         title = "Scan Successfully Done!",
                         description = "You’ll receive a notification through SMS and Email once the verification is complete. In the meantime, you can continue exploring the app.",
-                        onDismiss = {
-                            verifyFaceEvents(VerifyFaceEvents.OnVerifyFace)
-                        },
+                        onDismiss = {},
                         dismissOnBackPress = false,
-                        dismissOnClickOutside = true
+                        dismissOnClickOutside = false
                     )
                 }
             }

@@ -10,4 +10,5 @@ android {
 
 dependencies {
     implementation(project(":userFeatures:userHome:navigation"))
+    implementation(project(":libraries:designSystem"))
 }

@@ -18,4 +18,12 @@ class UserHomeNavigationImpl(
             )
         )
     }
+
+    override fun navigateToHealthData() {
+        navigationManager.navigate(
+            command = NavigationCommand.NavigateToRoute(
+                route = ScreenBRoute
+            )
+        )
+    }
 }

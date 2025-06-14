@@ -11,4 +11,6 @@ interface UserAuthNavigation {
     fun navigateToUploadDocument()
 
     fun navigateToVerifyFace()
+
+    fun navigateToHomeScreen()
 }
