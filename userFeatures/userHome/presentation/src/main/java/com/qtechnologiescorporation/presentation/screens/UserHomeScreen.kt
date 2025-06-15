@@ -33,6 +33,7 @@ import com.qtechnologiescorporation.designsystem.components.BaseScreen
 import com.qtechnologiescorporation.designsystem.components.UploadDocumentBox
 import com.qtechnologiescorporation.designsystem.spacing
 import com.qtechnologiescorporation.designsystem.utils.rememberFilePickerLauncher
+import com.qtechnologiescorporation.designsystem.utils.CustomPaddingValues.bottomBarPaddingForScaffold
 import com.qtechnologiescorporation.presentation.R
 import com.qtechnologiescorporation.presentation.components.HealthIndexComponent
 import com.qtechnologiescorporation.presentation.components.HomeScreenTopBar
@@ -68,6 +69,7 @@ fun UserHomeScreenContent(
     onSelectFile: () -> Unit
 ) {
     Scaffold(
+        contentWindowInsets = bottomBarPaddingForScaffold,
         topBar = {
             HomeScreenTopBar(
                 onProfileClick = { },

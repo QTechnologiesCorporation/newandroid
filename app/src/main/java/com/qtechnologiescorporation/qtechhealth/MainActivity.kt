@@ -4,29 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.navigation.compose.rememberNavController
 import com.qtechnologiescorporation.api.NavControllerAccessor
 import com.qtechnologiescorporation.designsystem.QTechHealthTheme
-import com.qtechnologiescorporation.presentation.viewmodels.UserAskTypeViewModel
-import com.qtechnologiescorporation.qtechhealth.navigation.QTechNavGraph
+import com.qtechnologiescorporation.navigation.UserAskTypeRoute
+import com.qtechnologiescorporation.qtechhealth.navigation.QTechApp
 import org.koin.android.ext.android.get
-import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,18 +18,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             QTechHealthTheme {
-                val navController = rememberNavController()
+                val qTechNavController = rememberNavController()
                 val navigationManager: NavControllerAccessor = get()
 
-                DisposableEffect(navController) {
-                    navigationManager.setController(navController)
+                DisposableEffect(qTechNavController) {
+                    navigationManager.setController(qTechNavController)
                     onDispose {
                         navigationManager.clear()
-
                     }
                 }
-
-                QTechNavGraph(navController)
+                QTechApp(
+                    // this is wrong way to achieve this but for now it is for temporary purpose
+                    //i must need to achieve this using navigation manager
+                    qTechNavController = qTechNavController,
+                    startDestination = UserAskTypeRoute
+                )
             }
         }
     }
